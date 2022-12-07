@@ -7,19 +7,19 @@ const showPage = () => {
     const [show , setShow] =useState ();
     const router = useRouter();
     const {id}= router.query;
+    console.log (id);
     const [error,setError]= useState(false);
     // console.log (url)
 
-    useEffect (() =>{
-        let url ="https://api.tvmaze.com/shows/" + id;
-        fetch (url).then (async res=>{
-         let data = await res.jason()
-                setShow (data);
-                // console.log(data);
-        }).catch(err=> setError (true))
-        // console.log (url);
- 
-    },[])
+    useEffect(()=>{
+      let url = "https://api.tvmaze.com/shows/"+id;
+      // console.log(url);
+      fetch(url).then(async res=>{
+          let data = await res.json();
+          setShow(data);
+          console.log(data);
+      }).catch(err=>{})
+  }, [id])
 
     if (error){
         return (<div>Page Not Found</div>)
@@ -31,7 +31,7 @@ const showPage = () => {
 
      <div>
         <h1>{show.name}</h1>
-        <div dangerouslySetInnerHTML={{__html:show.summery}}></div>
+        <div dangerouslySetInnerHTML={{__html:show.summary}}></div>
      </div>
 
      }
@@ -42,4 +42,4 @@ const showPage = () => {
   )
 }
 
-export default [showPage]
+export default showPage
