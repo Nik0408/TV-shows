@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useRouter } from 'next/router';
 
-const showPage = () => {
+const ShowPage = () => {
     const [show , setShow] =useState ();
     const router = useRouter();
     const {id}= router.query;
@@ -42,4 +42,4 @@ const showPage = () => {
   )
 }
 
-export default showPage
+export default ShowPage
