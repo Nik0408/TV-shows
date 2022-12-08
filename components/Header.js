@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
   return (
     <div className='header'>
-        <h3>TV Shows</h3>
+      <Link href="/"><h3>TV Shows</h3></Link>
+        
     </div>
   )
 }
